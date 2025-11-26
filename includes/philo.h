@@ -13,11 +13,13 @@
 #ifndef PHILO_H
 # define PHILO_H
 
-#include <pthread.h>
-#include <sys/time.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+# include <pthread.h>
+# include <sys/time.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdbool.h>
+# include <limits.h>
 
 # define FORK "has taken a fork"
 # define THINK "is thinking"
@@ -50,6 +52,6 @@ typedef struct s_philo
 	int				left_fork;
 	int				right_fork;
 	t_data			*data;
-}   t_philo;
+}	t_philo;
 
 #endif
