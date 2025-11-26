@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.h                                     :+:      :+:    :+:   */
+/*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 07:33:05 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/11/26 08:16:06 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2025/11/26 08:50:44 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILOSOPHERS_H
-# define PHILOSOPHERS_H
+#ifndef PHILO_H
+# define PHILO_H
 
 #include <pthread.h>
 #include <sys/time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+# define FORK "has taken a fork"
+# define THINK "is thinking"
+# define EAT "is eating"
+# define SLEEP "is sleeping"
+# define DIED "died"
 
 typedef struct s_data
 {
