@@ -6,7 +6,7 @@
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 07:33:05 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/11/26 08:00:33 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2025/11/26 08:16:06 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ typedef struct s_data
 	int				time_to_sleep;
 	int				must_eat_count;
 	long			start_time;
-	int				someone_died;
-	int				all_ate_enough;
+	int				philo_is_dead;
+	int				all_have_eat;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	print_mutex;
 	pthread_mutex_t	death_mutex;
