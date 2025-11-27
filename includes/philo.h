@@ -54,6 +54,19 @@ typedef struct s_philo
 	t_data			*data;
 }	t_philo;
 
+//Parsing
+
+int	parse_args(int ac, char **av, t_data *data);
+
+//Init
+
+int	init_mutex(t_data *data);
+int	init_data(t_data *data);
+int	init_philo(t_philo **philos, t_data *data);
+
+//Utils
+
 int	error_msg(char *str);
+void	cleanup(t_philo **philos, t_data *data);
 
 #endif
