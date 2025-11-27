@@ -54,4 +54,6 @@ typedef struct s_philo
 	t_data			*data;
 }	t_philo;
 
+int	error_msg(char *str);
+
 #endif
