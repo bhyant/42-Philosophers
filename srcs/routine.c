@@ -17,6 +17,12 @@ void	*routine(void *threads)
 	t_philo	*philo;
 
 	philo = (t_philo *)threads;
+	if (philo->data->nb_philo == 1)
+	{
+		print_status(philo, FORK);
+		ft_usleep(philo->data->time_to_die);
+		return (NULL);
+	}
 	if (philo->id % 2 == 0)
 		usleep(1000);
 	while (1)

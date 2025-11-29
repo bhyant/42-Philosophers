@@ -36,12 +36,15 @@ int	simulation_is_on(t_data *data)
 void	print_status(t_philo *philo, char *status)
 {
 	long	time;
-	pthread_mutex_lock(&philo->data->print_mutex);
-	if (!simulation_is_on(philo->data))
+
+	pthread_mutex_lock(&philo->data->death_mutex);
+	if (philo->data->philo_is_dead == 1)
 	{
-		pthread_mutex_unlock(&philo->data->print_mutex);
+		pthread_mutex_unlock(&philo->data->death_mutex);
 		return ;
 	}
+	pthread_mutex_unlock(&philo->data->death_mutex);	
+	pthread_mutex_lock(&philo->data->print_mutex);
 	time = get_time() - philo->data->start_time;
 	printf("%ld %d %s\n", time, philo->id, status);
 	pthread_mutex_unlock(&philo->data->print_mutex);

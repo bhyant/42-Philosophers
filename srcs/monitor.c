@@ -40,28 +40,31 @@ int	check_is_dead(t_philo *philos, t_data *data)
 	return (0);
 }
 
-int	check_all_ate(t_philo *philo, t_data *data)
+int	check_all_ate(t_philo *philos, t_data *data)
 {
 	int	i;
-	int	all_ate;
+	int	count;
 
 	if (data->must_eat_count == -1)
 		return (0);
 	i = 0;
-	all_ate = 1;
+	count = 0;
 	while (i < data->nb_philo)
 	{
-		if (philo[i].meals_eaten < data->must_eat_count)
-			return (0);
+		pthread_mutex_lock(&data->meal_mutex);
+		if (philos[i].meals_eaten >= data->must_eat_count)
+			count++;
+		pthread_mutex_unlock(&data->meal_mutex);
 		i++;
 	}
-	if (all_ate)
+	if (count == data->nb_philo)
 	{
 		pthread_mutex_lock(&data->death_mutex);
 		data->philo_is_dead = 1;
 		pthread_mutex_unlock(&data->death_mutex);
+		return (1);
 	}
-	return (1);
+	return (0);
 }
 
 void	*monitoring(void *t)

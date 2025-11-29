@@ -32,9 +32,9 @@ void	philo_eat(t_philo *philo)
 	print_status(philo, EAT);
 	pthread_mutex_lock(&philo->data->meal_mutex);
 	philo->last_meal_time = get_time();
+	philo->meals_eaten++;
 	pthread_mutex_unlock(&philo->data->meal_mutex);
 	ft_usleep(philo->data->time_to_eat);
-	philo->meals_eaten++;
 	release_forks(philo);
 }
 

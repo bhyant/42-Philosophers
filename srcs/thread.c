@@ -26,7 +26,7 @@ int	create_threads(t_philo *philos, t_data *data)
 	}
 	if (pthread_create(&monitor, NULL, monitoring, philos) != 0)
 		return (error_msg("Failed to create Monitoring"));
-	return (0);
+	return (1);
 }
 
 int	join_threads(t_philo *philos, t_data *data)
