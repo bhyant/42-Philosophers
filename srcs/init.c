@@ -17,9 +17,9 @@ int	init_mutex(t_data *data)
 	int	i;
 
 	i = 0;
-	data = malloc(sizeof(pthread_mutex_t) * data->nb_philo);
-	if (!data)
-	 return (-1);
+	data->forks = malloc(sizeof(pthread_mutex_t) * data->nb_philo);
+	if (!data->forks)
+	 return (0);
 	while (i < data->nb_philo)
 	{
 		if (pthread_mutex_init(&data->forks[i], NULL)!= 0)
@@ -32,18 +32,18 @@ int	init_mutex(t_data *data)
 		return (error_msg("Failed to init Death Mutex"));
 	if (pthread_mutex_init(&data->meal_mutex, NULL) != 0)
 		return (error_msg("Failed to init Meal Mutex"));
-	return (0);
+	return (1);
 }
 
 int	init_data(t_data *data)
 {
 	data->philo_is_dead = 0;
 	data->all_have_eat = 0;
-	data->start_time = get_time(); # A faire
+	data->start_time = get_time();
 	data->forks = NULL;
 	if (!init_mutex(data))
-		return (-1);
-	return (0);
+		return (0);
+	return (1);
 }
 
 int	init_philos(t_philo **philos, t_data *data)
@@ -53,16 +53,17 @@ int	init_philos(t_philo **philos, t_data *data)
 	i = 0;
 	*philos = malloc(sizeof(t_philo) * data->nb_philo);
 	if (!*philos)
-		return (-1);
+		return (0);
 	while (i < data->nb_philo)
 	{
 		(*philos)[i].id = i + 1;
-		(*philos)[i].left_fork = (i + 1) % data->nb_philo;
+		(*philos)[i].left_fork = i;
+		(*philos)[i].right_fork = (i + 1) % data->nb_philo;
 		(*philos)[i].last_meal_time = get_time();
 		(*philos)[i].meals_eaten = 0;
 		(*philos)[i].data = data;
 		i++;
 	}
-	return (0);
+	return (1);
 }
 

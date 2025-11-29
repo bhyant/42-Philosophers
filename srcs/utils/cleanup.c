@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/philo.h"
+#include "../../includes/philo.h"
 
 void	destroy_mutex(t_data *data)
 {
@@ -31,7 +31,7 @@ void	clean_all(t_philo *philos, t_data *data)
 {
 	if (data->forks)
 	{
-		destroy_mutexes(data);
+		destroy_mutex(data);
 		free(data->forks);
 	}
 	if (philos)
@@ -41,6 +41,6 @@ void	clean_all(t_philo *philos, t_data *data)
 int	error_msg(char *str)
 {
 	printf("Error : %s\n", str);
-	return (-1);
+	return (0);
 }
 

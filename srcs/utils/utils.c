@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/philo.h"
+#include "../../includes/philo.h"
 
 long	get_time(void)
 {
@@ -43,7 +43,7 @@ void	print_status(t_philo *philo, char *status)
 		return ;
 	}
 	time = get_time() - philo->data->start_time;
-	printf("%ld %d %s", time, philo->id, status);
+	printf("%ld %d %s\n", time, philo->id, status);
 	pthread_mutex_unlock(&philo->data->print_mutex);
 }
 

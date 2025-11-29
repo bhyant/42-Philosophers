@@ -82,8 +82,7 @@ int	parse_args(int ac, char **av, t_data *data)
 	{
 		data->must_eat_count = ft_atoi_safe(av[5]);
 		if (data->must_eat_count <= 0)
-			return (error_msg("number_of_times_each_philosopher_must_eat
-					 must be > 0"));
+			return (error_msg("must_eat_count must be > 0"));
 	}
 	else
 		data->must_eat_count = -1;
