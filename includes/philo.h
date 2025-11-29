@@ -6,7 +6,7 @@
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 07:33:05 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/11/26 08:50:44 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2025/11/29 04:54:10 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,42 @@ typedef struct s_philo
 	t_data			*data;
 }	t_philo;
 
-//Parsing
+// Parsing
+int		parse_args(int ac, char **av, t_data *data);
 
-int	parse_args(int ac, char **av, t_data *data);
+// Init
+int		init_mutex(t_data *data);
+int		init_data(t_data *data);
+int		init_philos(t_philo **philos, t_data *data);
 
-//Init
+// Actions
+void	take_forks(t_philo *philo);
+void	release_forks(t_philo *philo);
+void	philo_eat(t_philo *philo);
+void	philo_sleep(t_philo *philo);
+void	philo_think(t_philo *philo);
 
-int	init_mutex(t_data *data);
-int	init_data(t_data *data);
-int	init_philo(t_philo **philos, t_data *data);
+// Routine
+void	*routine(void *threads);
 
-//Utils
+// Thread
+int		create_threads(t_philo *philos, t_data *data);
+int		join_threads(t_philo *philos, t_data *data);
 
-int	error_msg(char *str);
-void	cleanup(t_philo **philos, t_data *data);
+// Monitor
+int		check_is_dead(t_philo *philos, t_data *data);
+int		check_all_ate(t_philo *philo, t_data *data);
+void	*monitoring(void *t);
+
+// Utils
+long	get_time(void);
+int		simulation_is_on(t_data *data);
+void	print_status(t_philo *philo, char *status);
+void	ft_usleep(long time);
+int		error_msg(char *str);
+
+// Cleanup
+void	destroy_mutex(t_data *data);
+void	clean_all(t_philo *philos, t_data *data);
 
 #endif

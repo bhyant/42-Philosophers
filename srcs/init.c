@@ -31,7 +31,7 @@ int	init_mutex(t_data *data)
 	if (pthread_mutex_init(&data->death_mutex, NULL) != 0)
 		return (error_msg("Failed to init Death Mutex"));
 	if (pthread_mutex_init(&data->meal_mutex, NULL) != 0)
-		return (error_msg("Failde to init Meal Mutex"));
+		return (error_msg("Failed to init Meal Mutex"));
 	return (0);
 }
 

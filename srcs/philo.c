@@ -6,7 +6,7 @@
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 08:12:11 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/11/26 08:12:12 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2025/11/29 04:56:27 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	main(int ac, char **av)
 	if (!init_philos(&philos, &data))
 		return (cleanup(NULL, &data), 1);
 	if (!create_threads(philos, &data))
-		return (cleanup(philos, &data), 1);
+		return (clean_all(philos, &data), 1);
 	join_threads(philos, &data);
-	cleanup(philos, &data);
+	clean_all(philos, &data);
 	return (0);
 }
 
