@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/28 22:15:09 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/11/29 01:00:09 by tbhuiyan         ###   ########.fr       */
+/*   Created: 2025/11/29 23:14:24 by tbhuiyan          #+#    #+#             */
+/*   Updated: 2025/11/29 23:14:25 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,20 @@
 
 void	take_forks(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->data->forks[philo->left_fork]);
-	print_status(philo, FORK);
-	pthread_mutex_lock(&philo->data->forks[philo->right_fork]);
-	print_status(philo, FORK);
+	if (philo->id % 2 == 0)
+	{
+		pthread_mutex_lock(&philo->data->forks[philo->left_fork]);
+		print_status(philo, FORK);
+		pthread_mutex_lock(&philo->data->forks[philo->right_fork]);
+		print_status(philo, FORK);
+	}
+	else
+	{
+		pthread_mutex_lock(&philo->data->forks[philo->right_fork]);
+		print_status(philo, FORK);
+		pthread_mutex_lock(&philo->data->forks[philo->left_fork]);
+		print_status(philo, FORK);
+	}
 }
 
 void	release_forks(t_philo *philo)
@@ -48,4 +58,3 @@ void	philo_think(t_philo *philo)
 {
 	print_status(philo, THINK);
 }
-

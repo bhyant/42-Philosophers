@@ -15,7 +15,6 @@
 int	create_threads(t_philo *philos, t_data *data)
 {
 	int	i;
-	pthread_t monitor;
 
 	i = 0;
 	while (i < data->nb_philo)
@@ -24,7 +23,7 @@ int	create_threads(t_philo *philos, t_data *data)
 			return (error_msg("Failed To create Philo"));
 		i++;
 	}
-	if (pthread_create(&monitor, NULL, monitoring, philos) != 0)
+	if (pthread_create(&data->monitor, NULL, monitoring, philos) != 0)
 		return (error_msg("Failed to create Monitoring"));
 	return (1);
 }
@@ -37,9 +36,11 @@ int	join_threads(t_philo *philos, t_data *data)
 	while (i < data->nb_philo)
 	{
 		if (pthread_join(philos[i].thread, NULL) != 0)
-			return (-1);
+			return (0);
 		i++;
 	}
-	return (0);
+	if (pthread_join(data->monitor, NULL) != 0)
+		return (0);
+	return (1);
 }
 

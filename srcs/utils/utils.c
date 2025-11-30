@@ -22,7 +22,6 @@ long	get_time(void)
 
 int	simulation_is_on(t_data *data)
 {
-
 	pthread_mutex_lock(&data->death_mutex);
 	if (data->philo_is_dead == 1)
 	{
@@ -43,7 +42,7 @@ void	print_status(t_philo *philo, char *status)
 		pthread_mutex_unlock(&philo->data->death_mutex);
 		return ;
 	}
-	pthread_mutex_unlock(&philo->data->death_mutex);	
+	pthread_mutex_unlock(&philo->data->death_mutex);
 	pthread_mutex_lock(&philo->data->print_mutex);
 	time = get_time() - philo->data->start_time;
 	printf("%ld %d %s\n", time, philo->id, status);
