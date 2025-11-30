@@ -58,3 +58,4 @@ void	philo_think(t_philo *philo)
 {
 	print_status(philo, THINK);
 }
+

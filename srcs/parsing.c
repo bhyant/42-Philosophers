@@ -53,6 +53,24 @@ static int	ft_atoi_safe(char *str)
 	return ((int)res);
 }
 
+static int	check_args(int ac, char **av, t_data *data)
+{
+	(void)ac;
+	data->nb_philo = ft_atoi_safe(av[1]);
+	data->time_to_die = ft_atoi_safe(av[2]);
+	data->time_to_eat = ft_atoi_safe(av[3]);
+	data->time_to_sleep = ft_atoi_safe(av[4]);
+	if (data->nb_philo <= 0)
+		return (error_msg("Number of philosophers must be > 0"));
+	if (data->time_to_die <= 0)
+		return (error_msg("time_to_die must be > 0"));
+	if (data->time_to_eat <= 0)
+		return (error_msg("time_to_eat must be > 0"));
+	if (data->time_to_sleep <= 0)
+		return (error_msg("time_to_sleep must be > 0"));
+	return (1);
+}
+
 int	parse_args(int ac, char **av, t_data *data)
 {
 	int	i;
@@ -66,18 +84,8 @@ int	parse_args(int ac, char **av, t_data *data)
 			return (error_msg("Args Must be positive numbers"));
 		i++;
 	}
-	data->nb_philo = ft_atoi_safe(av[1]);
-	data->time_to_die = ft_atoi_safe(av[2]);
-	data->time_to_eat = ft_atoi_safe(av[3]);
-	data->time_to_sleep = ft_atoi_safe(av[4]);
-	if (data->nb_philo <= 0)
-		return (error_msg("Number of philosophers must be > 0"));
-	if (data->time_to_die <= 0)
-		return (error_msg("time_to_die must be > 0"));
-	if (data->time_to_eat <= 0)
-		return (error_msg("time_to_eat must be > 0"));
-	if (data->time_to_sleep <= 0)
-		return (error_msg("time_to_sleep must be > 0"));
+	if (!check_args(ac, av, data))
+		return (0);
 	if (ac == 6)
 	{
 		data->must_eat_count = ft_atoi_safe(av[5]);

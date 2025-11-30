@@ -22,7 +22,7 @@ int	init_mutex(t_data *data)
 		return (0);
 	while (i < data->nb_philo)
 	{
-		if (pthread_mutex_init(&data->forks[i], NULL)!= 0)
+		if (pthread_mutex_init(&data->forks[i], NULL) != 0)
 			return (error_msg("Failed to init Forks"));
 		i++;
 	}
