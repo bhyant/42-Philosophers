@@ -6,7 +6,7 @@
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 08:14:02 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/11/26 08:14:03 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2025/12/01 03:46:11 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,24 @@ void	*routine(void *threads)
 	philo = (t_philo *)threads;
 	if (philo->data->nb_philo == 1)
 	{
-		print_status(philo, FORK);
-		ft_usleep(philo->data->time_to_die);
-		return (NULL);
+		return (print_status(philo, FORK), ft_usleep(philo->data->time_to_die),
+			NULL);
 	}
 	if (philo->id % 2 == 0)
-		usleep(1000);
+		ft_usleep(philo->data->time_to_eat / 2);
 	while (1)
 	{
 		if (!simulation_is_on(philo->data))
 			break ;
-		philo_think(philo);
 		philo_eat(philo);
+		if (!simulation_is_on(philo->data))
+			break ;
 		philo_sleep(philo);
+		if (!simulation_is_on(philo->data))
+			break ;
+		philo_think(philo);
+		if (!simulation_is_on(philo->data))
+			break ;
 	}
 	return (NULL);
 }
-

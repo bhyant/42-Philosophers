@@ -6,7 +6,7 @@
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 08:12:14 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/11/26 08:12:15 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2025/11/30 22:25:51 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,3 @@ int	parse_args(int ac, char **av, t_data *data)
 		data->must_eat_count = -1;
 	return (1);
 }
-

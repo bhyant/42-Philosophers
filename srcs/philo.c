@@ -6,7 +6,7 @@
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 08:12:11 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/11/29 04:56:27 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2025/11/30 22:25:43 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ int	main(int ac, char **av)
 	clean_all(philos, &data);
 	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 07:33:05 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/11/29 04:54:10 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2025/11/30 22:30:43 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int		init_data(t_data *data);
 int		init_philos(t_philo **philos, t_data *data);
 
 // Actions
-void	take_forks(t_philo *philo);
+int		take_forks(t_philo *philo);
 void	release_forks(t_philo *philo);
 void	philo_eat(t_philo *philo);
 void	philo_sleep(t_philo *philo);

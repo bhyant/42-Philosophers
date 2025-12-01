@@ -6,7 +6,7 @@
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 00:28:34 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/11/29 01:16:56 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2025/11/30 22:25:35 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,3 @@ void	ft_usleep(long time)
 	while (get_time() - start < time)
 		usleep(100);
 }
-

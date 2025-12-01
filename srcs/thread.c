@@ -6,7 +6,7 @@
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 19:08:25 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/11/27 19:09:04 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2025/11/30 22:25:28 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,3 @@ int	join_threads(t_philo *philos, t_data *data)
 		return (0);
 	return (1);
 }
-

@@ -6,7 +6,7 @@
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 08:11:41 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/11/26 08:55:35 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2025/11/30 22:25:32 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,3 @@ int	error_msg(char *str)
 	printf("Error : %s\n", str);
 	return (0);
 }
-
